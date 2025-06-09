@@ -34,7 +34,7 @@ def check_requirements():
 
 def check_data_file():
     """Check if data file exists"""
-    primary_path = r'C:\Users\abdal\Downloads\jordan_transactions.csv'
+    primary_path = os.getenv('DATA_PATH', 'jordan_transactions.csv')
     
     if not os.path.exists(primary_path):
         print(f"Data file not found at: {primary_path}")

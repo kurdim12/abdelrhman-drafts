@@ -83,13 +83,14 @@ for key in ('chat_history', 'alerts', 'achievements'):
 # Load data with fallback options
 @st.cache_data
 def load_data():
-    primary = r'C:\Users\abdal\Downloads\jordan_transactions.csv'
+    env_path = os.getenv('DATA_PATH')
     fallbacks = [
         'jordan_transactions.csv',
         'data/jordan_transactions.csv',
         os.path.join(os.path.expanduser('~'), 'Downloads', 'jordan_transactions.csv')
     ]
-    for path in [primary] + fallbacks:
+    paths = ([env_path] if env_path else []) + fallbacks
+    for path in paths:
         if os.path.exists(path):
             try:
                 return load_and_process_data(path)
@@ -102,7 +103,8 @@ def load_data():
         st.success("Sample data generated—refresh!")
         return load_and_process_data("jordan_transactions.csv")
     st.info("Place your file in one of these paths:")
-    st.code(primary)
+    if env_path:
+        st.code(env_path)
     for p in fallbacks:
         st.code(p)
     st.stop()

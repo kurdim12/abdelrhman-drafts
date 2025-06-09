@@ -24,7 +24,7 @@ def print_menu():
 
 def load_data():
     """Load transaction data"""
-    file_path = r'C:\Users\abdal\Downloads\jordan_transactions.csv'
+    file_path = os.getenv('DATA_PATH', 'jordan_transactions.csv')
     
     if not os.path.exists(file_path):
         print(f"Data file not found at: {file_path}")

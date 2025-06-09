@@ -95,7 +95,7 @@ financeguard-ai/
 ├── chatbot_integrations.py    # Bot implementations
 ├── notification_integrations.py # Multi-channel notifications
 ├── workflow_automation.py      # Workflow automation
-├── voice_recognition.py       # Voice interface with Arabic support
+├── voice_assistant.py         # Voice interface with Arabic support
 ├── setup_bots.py              # Bot configuration helper
 ├── run_bots.py               # Bot manager
 ├── generate_sample_data.py    # Sample data generator
@@ -113,6 +113,7 @@ Create a `.env` file with the following variables:
 ```env
 # Required
 OPENAI_API_KEY=your_openai_api_key
+DATA_PATH=path/to/jordan_transactions.csv
 
 # Optional - Notifications
 TELEGRAM_BOT_TOKEN=your_telegram_bot_token
