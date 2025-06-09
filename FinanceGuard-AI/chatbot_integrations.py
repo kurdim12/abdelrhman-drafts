@@ -369,7 +369,8 @@ def run_whatsapp_bot(df: pd.DataFrame, port=5000):
 # Example usage
 if __name__ == "__main__":
     # Load your data
-    df = pd.read_csv(r'C:\Users\abdal\Downloads\jordan_transactions.csv')
+    data_path = os.getenv('DATA_PATH', 'jordan_transactions.csv')
+    df = pd.read_csv(data_path)
     
     # Choose which bot to run
     import sys
